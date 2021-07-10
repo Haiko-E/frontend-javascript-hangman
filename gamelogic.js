@@ -49,20 +49,25 @@ function isGameWon(word, guesses) {
 function isGameLost(word, guesses) {
   let counter = 0;
   const arrayWord = word.split("");
-  for (let i = 0; i < arrayWord.length; i++) {
-    const element = arrayWord[i];
-    if (!guesses.includes(element)) {
+
+  // loop trough the 'guesses' array. counter +1 if there is no match with the word.
+  for (let i = 0; i < guesses.length; i++) {
+    const element = guesses[i];
+    if (!arrayWord.includes(element)) {
       counter++;
     }
   }
-  if (counter > 7) {
+
+  // When counter is bigger or equel to 7 the Game is lost, else continue
+  if (counter >= 7) {
     return true;
   }
   return false;
-  // WRITE ME
 }
 
-console.log(isGameLost("javascript", ["b", "z", "d", "c", "g", "h", "q", "t"]));
+console.log(
+  isGameLost("javascript", ["j", "s", "b", "2", "2", "2", "2", "2", "2"])
+);
 
 module.exports = {
   displayWordSoFar: displayWordSoFar,
