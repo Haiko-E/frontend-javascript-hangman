@@ -34,8 +34,6 @@ function displayWordSoFar(word, guesses) {
   return emptyString;
 }
 
-// console.log(displayWordSoFar("javascript", ["a", "s"]));
-
 function isGameWon(word, guesses) {
   if (!displayWordSoFar(word, guesses).includes("_")) {
     return true;
@@ -43,8 +41,6 @@ function isGameWon(word, guesses) {
     return false;
   }
 }
-
-// console.log(isGameWon("javascript", ["j", "v", "s", "c", "r", "i", "p", "t"]));
 
 function isGameLost(word, guesses) {
   let counter = 0;
@@ -65,12 +61,56 @@ function isGameLost(word, guesses) {
   return false;
 }
 
-console.log(
-  isGameLost("javascript", ["j", "s", "b", "2", "2", "2", "2", "2", "2"])
-);
+// Nieuwe functie counter
+
+function counter(word, guesses) {
+  let counter = 0;
+  const arrayWord = word.split("");
+
+  // loop trough the 'guesses' array. counter +1 if there is no match with the word.
+  for (let i = 0; i < guesses.length; i++) {
+    const element = guesses[i];
+    if (!arrayWord.includes(element)) {
+      counter++;
+    }
+  }
+  switch (counter) {
+    case 0:
+      return "\n\n\n\n\n";
+    case 1:
+      return "\n\n\n\n\n==========" + `  aantal fout ${counter}`;
+    case 2:
+      return "\n|\n|\n|\n|\n|\n==========" + `  aantal fout ${counter}`;
+    case 3:
+      return (
+        "__________\n|\n|\n|\n|\n|\n==========" + `  aantal fout ${counter}`
+      );
+    case 4:
+      return (
+        "__________\n|       |\n|\n|\n|\n|\n==========" +
+        `  aantal fout ${counter}`
+      );
+    case 5:
+      return (
+        "__________\n|       |\n|      _o_\n|\n|\n|\n==========" +
+        `  aantal fout ${counter}`
+      );
+    case 6:
+      return (
+        "__________\n|       |\n|      _o_\n|       O\n|\n|\n==========" +
+        `  aantal fout ${counter}`
+      );
+    case 7:
+      return (
+        "__________\n|       |\n|      _o_\n|       O\n|      / \\\n|\n==========" +
+        `  aantal fout ${counter}`
+      );
+  }
+}
 
 module.exports = {
   displayWordSoFar: displayWordSoFar,
   isGameWon: isGameWon,
   isGameLost: isGameLost,
+  counter: counter,
 };
