@@ -61,19 +61,21 @@ function isGameLost(word, guesses) {
   return false;
 }
 
-// Nieuwe functie counter
+// Nieuwe functie counter, produceert het galgje en houd een counter bij.
 
 function counter(word, guesses) {
   let counter = 0;
   const arrayWord = word.split("");
 
-  // loop trough the 'guesses' array. counter +1 if there is no match with the word.
+  // loop door de 'guesses' array. counter +1 wanneer er geen goeie guesses is.
   for (let i = 0; i < guesses.length; i++) {
     const element = guesses[i];
     if (!arrayWord.includes(element)) {
       counter++;
     }
   }
+
+  // verschillende cases waaruit de counter een galgje en het aantal fouten returned
   switch (counter) {
     case 0:
       return "\n\n\n\n\n";

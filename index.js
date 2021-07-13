@@ -13,7 +13,7 @@ function game(word, guesses) {
   console.log("Dit heb je tot nu toe geraden: ", guesses);
   const letter = question("Raad een letter: ").toLowerCase();
 
-  // Geeft een melding aan de gebruiker wanneer hij meer dan 1 letterinvoert
+  // Geeft een melding aan de gebruiker wanneer hij meer dan 1 letterinvoertg
   if (letter.length > 1) {
     console.log("Je mag maar 1 letter invoeren, probeer het opnieuw");
     return game(word, guesses);
