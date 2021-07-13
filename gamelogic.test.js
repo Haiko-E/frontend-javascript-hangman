@@ -30,7 +30,7 @@ test("isGameWon should return false when all letters have not been guessed yet",
   const guesses = [];
 
   // ACT
-  const gameWon = isGameWon(word, guesses);
+  const gameWon = isGameWon(word, guesses);                   
 
   // ASSERT
   expect(gameWon).toBe(false);
